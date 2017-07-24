@@ -16,11 +16,11 @@ var todoList = {
             if (this.todos[i].completed === true){
                 check = "(x) ";
                 console.log('Todo', i, ':', check, this.todos[i].todoText);
-                $('#todos').append('Todo '+ (i + 1) + ': ' + check + this.todos[i].todoText + "<br>");
+                $('#todos').append('<li>' + check + this.todos[i].todoText + '</li>');
             }
             else {
                 console.log('Todo', i, ':', check, this.todos[i].todoText);
-                $('#todos').append('Todo '+ (i + 1) + ': ' + check + this.todos[i].todoText + "<br>");
+                $('#todos').append('<li>'+ check + this.todos[i].todoText + '</li>');
             }
         }
         
