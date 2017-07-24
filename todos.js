@@ -33,15 +33,15 @@ var todoList = {
         this.displayTodos();
     },
     changeTodo: function(position, todoText) {
-        this.todos[position].todoText = todoText;
+        this.todos[position - 1].todoText = todoText;
         this.displayTodos();
     },
     deleteTodo: function(position) {
-        this.todos.splice(position, 1);
+        this.todos.splice(position - 1, 1);
         this.displayTodos();
     },
     toggleCompleted: function(position) {
-        var todo = this.todos[position];
+        var todo = this.todos[position - 1];
         todo.completed = !todo.completed;
         this.displayTodos();
     },
@@ -79,6 +79,23 @@ var handlers = {
             $('#todos').text('');
         }
             
+    },
+    addTodo: function() {
+        todoList.addTodo($('#addTodoTextInput').val());
+        $('#addTodoTextInput').val("");
+    },
+    changeTodo: function() {
+        todoList.changeTodo($('#changeTodoPositionInput').val(), $('#changeTodoTextInput').val()); 
+        $('#changeTodoPositionInput').val("");
+        $('#changeTodoTextInput').val("");
+    },
+    deleteTodo: function() {
+        todoList.deleteTodo($('#deleteTodoPositionInput').val()); 
+        $('#deleteTodoPositionInput').val("");
+    },
+    toggleCompleted: function() {
+        todoList.toggleCompleted($('#toggleCompletedPositionInput').val());
+        $('#toggleCompletedPositionInput').val("");
     },
     toggleAll: function() {
         todoList.toggleAll();
